@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Movie Ticket Reservation System</title>
+</head>
+<body bgcolor="lavender">
+<center>
+<header>
+   <h1 style="color:darkblue">Online Movie Ticket Reservation System</h1>
+</header>
+<h2>Now Showing Movies</h2>
+<img src="kot1.jpg" width="300" height="200" hspace="10">
+<img src="ko2.jpg" width="300" height="200" hspace="10">
+<img src="live2.jpg" width="300" height="200" hspace="10">
+<img src="live3.jpg" width="300" height="200" hspace="10">
+<h2>Event Highlights</h2>
+
+<center style="line-height:2;">
+★ Action Movie Premiere - This Friday<br>
+★ Family Special Show - Weekend Only<br>
+★ Late Night Show - 50% Off
+</center>
+<h2>Available Shows</h2>
+<table border="1" cellpadding="15" style="width:90%;">
+    <tr>
+        <th>Movie Name</th>
+        <th>Show Time</th>
+        <th>Available Seats</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Action Hero</td>
+        <td>10:00 AM</td>
+        <td>50</td>
+        <td>Rs.150</td>
+    </tr>
+    <tr>
+        <td>Love Story</td>
+        <td>1:00 PM</td>
+        <td>30</td>
+        <td>Rs.180</td>
+    </tr>
+    <tr>
+        <td>Comedy Night</td>
+        <td>6:00 PM</td>
+        <td>40</td>
+        <td>Rs.200</td>
+    </tr>
+</table>
+<h2>Book Your Ticket</h2>
+<form>
+  Name:
+<input type="text" name="name" required><br><br>
+
+Email:
+<input type="email" name="email" required><br><br>
+
+Select Movie:
+<select name="movie">
+    <option>Action Hero</option>
+    <option>Love Story</option>
+    <option>Comedy Night</option>
+</select><br><br>
+
+Select Show Time:
+<select name="time">
+    <option>10:00 AM</option>
+    <option>1:00 PM</option>
+    <option>6:00 PM</option>
+</select><br><br>
+
+Number of Tickets:
+<input type="number" name="tickets" min="1" max="10" required><br><br>
+
+Payment Method:
+<input type="radio" name="payment" value="card"> Card
+<input type="radio" name="payment" value="upi"> UPI
+<input type="radio" name="payment" value="cash"> Cash
+<br><br>
+
+<input type="submit" value="Book Now">
+</form>
+<footer>
+    <p>&copy; 2026 Online Movie Ticket Reservation System</p>
+</footer>
+</center>
+</body>
+</html>
