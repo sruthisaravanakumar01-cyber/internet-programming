@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Shopping System</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
+body{background:#F0FFF4;}
+header{background:#232f3e;color:white;padding:20px;text-align:center;font-size:32px;font-weight:bold;letter-spacing:2px;}
+.category-title{text-align:center;font-size:30px;margin:40px 0 30px;color:#333;}
+.categories{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:20px;}
+.card{width:220px;background:white;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.2);cursor:pointer;transition:.3s;overflow:hidden;}
+.card:hover{transform:translateY(-8px);box-shadow:0 10px 18px rgba(0,0,0,.3);}
+.card img{width:100%;height:170px;object-fit:cover;}
+.card h3{padding:15px;text-align:center;color:#222;}
+section{padding:50px;}
+section h2{font-size:35px;text-align:center;margin-bottom:30px;color:#232f3e;}
+.products{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;}
+.product{width:250px;background:white;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);padding:15px;text-align:center;transition:.3s;}
+.product:hover{transform:scale(1.05);}
+.product img{width:200px;height:200px;border-radius:10px;object-fit:cover;}
+.product h3{margin-top:10px;}
+.product p{font-size:20px;color:green;margin:10px;}
+.product video{width:200px;height:130px;margin-top:10px;border-radius:10px;object-fit:cover;}
+#cart{width:90%;margin:auto;margin-top:50px;background:white;min-height:220px;border:3px dashed #333;border-radius:15px;padding:20px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:10px;}
+#cart img{width:90px;height:90px;margin:10px;border-radius:10px;border:1px solid #ccc;}
+#cart h2,#cart p{width:100%;}
+.location{text-align:center;margin-top:50px;}
+.location button{padding:12px 25px;font-size:18px;background:#ff9900;color:white;border:none;border-radius:8px;cursor:pointer;}
+.location p{margin-top:20px;font-size:20px;}
+form{width:450px;margin:auto;margin-top:40px;background:white;padding:30px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);}
+input,textarea,select{width:100%;padding:12px;margin-top:10px;margin-bottom:20px;}
+input[type=submit]{background:#28a745;color:white;border:none;cursor:pointer;}
+input[type=reset]{background:red;color:white;border:none;cursor:pointer;}
+footer{margin-top:50px;background:#232f3e;color:white;text-align:center;padding:20px;}
+</style>
+</head>
+<body>
+
+<header>SRUTHI ONLINE SHOPPING PLATFORM</header>
+
+<center>
+<h1 class="category-title">Choose Your Category</h1>
+<div class="category-image">
+<img src="shop-banner.jpg" width="900" height="400" usemap="#shopmap">
+</div>
+</center>
+
+<map name="shopmap">
+<area shape="rect" coords="0,0,180,200" href="#fashion">
+<area shape="rect" coords="180,0,360,200" href="#beauty">
+<area shape="rect" coords="360,0,540,200" href="#electronics">
+<area shape="rect" coords="0,200,300,400" href="#home">
+<area shape="rect" coords="300,200,600,400" href="#appliances">
+</map>
+
+<!-- ===================== FASHION ===================== -->
+<section id="fashion">
+<h2>Fashion Collection</h2>
+<div class="products">
+
+<div class="product">
+<img src="shoe2.jpg" id="shoe2" draggable="true" ondragstart="drag(event)">
+<h3>Adidas Shoes</h3>
+<p>₹1,200</p>
+<video controls>
+<source src="shoe2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="tshirt1.jpg" id="tshirt1" draggable="true" ondragstart="drag(event)">
+<h3>Puma T-Shirt</h3>
+<p>₹500</p>
+<video controls>
+<source src="tshirt1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="tshirt2.jpg" id="tshirt2" draggable="true" ondragstart="drag(event)">
+<h3>Nike T-Shirt</h3>
+<p>₹800</p>
+<video controls>
+<source src="tshirt2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="shoe1.jpg" id="shoe1" draggable="true" ondragstart="drag(event)">
+<h3>Sports Shoes</h3>
+<p>₹2,000</p>
+<video controls>
+<source src="shoe1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== BEAUTY ===================== -->
+<section id="beauty">
+<h2>Beauty Collection</h2>
+<div class="products">
+
+<div class="product">
+<img src="beauty1.jpg" id="beauty1" draggable="true" ondragstart="drag(event)">
+<h3>Organic Lip Balm</h3>
+<p>₹350</p>
+<video controls>
+<source src="beauty1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty2.jpg" id="beauty2" draggable="true" ondragstart="drag(event)">
+<h3>Perfume</h3>
+<p>₹1,000</p>
+<video controls>
+<source src="beauty2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty3.jpg" id="beauty3" draggable="true" ondragstart="drag(event)">
+<h3>Foam Face Wash</h3>
+<p>₹200</p>
+<video controls>
+<source src="beauty3.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty4.jpg" id="beauty4" draggable="true" ondragstart="drag(event)">
+<h3>Face Cream</h3>
+<p>₹450</p>
+<video controls>
+<source src="beauty4.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== ELECTRONICS ===================== -->
+<section id="electronics">
+<h2>Electronics</h2>
+<div class="products">
+
+<div class="product">
+<img src="laptop.jpg" id="laptop" draggable="true" ondragstart="drag(event)">
+<h3>Laptop</h3>
+<p>₹55,000</p>
+<video controls>
+<source src="laptop.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="headphone.jpg" id="headphone" draggable="true" ondragstart="drag(event)">
+<h3>Headphones</h3>
+<p>₹2,500</p>
+<video controls>
+<source src="headphone.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="watch.jpg" id="watch" draggable="true" ondragstart="drag(event)">
+<h3>Smart Watch</h3>
+<p>₹3,999</p>
+<video controls>
+<source src="watch.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="mobile.jpg" id="mobile" draggable="true" ondragstart="drag(event)">
+<h3>Smart Phone</h3>
+<p>₹18,999</p>
+<video controls>
+<source src="mobile.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== CART (drop zone) ===================== -->
+<section>
+<h2>Your Cart</h2>
+<div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+</section>
+
+<!-- ===================== LOCATION ===================== -->
+<section class="location">
+<h2>Delivery Location</h2>
+<button onclick="getLocation()">Get Location</button>
+<p id="demo"></p>
+</section>
+
+<!-- ===================== PURCHASE FORM ===================== -->
+<section>
+<h2>Purchase Form</h2>
+<form>
+
+<label>Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Phone</label>
+<input type="tel">
+
+<label>Quantity</label>
+<input type="number" min="1" max="10">
+
+<label>Delivery Date</label>
+<input type="date">
+
+<label>Payment Method</label>
+<select>
+<option>Cash on Delivery</option>
+<option>UPI</option>
+<option>Credit Card</option>
+</select>
+
+<label>Address</label>
+<textarea rows="4"></textarea>
+
+<input type="submit" value="Buy Now">
+<input type="reset" value="Reset">
+
+</form>
+</section>
+
+<script>
+let autoScroll;
+
+function allowDrop(ev){
+    ev.preventDefault();
+}
+
+function drag(ev){
+    ev.dataTransfer.setData("text", ev.target.id);
+
+    autoScroll = setInterval(function(){
+        window.scrollBy(0,10);
+        if(window.innerHeight + window.scrollY >= document.body.scrollHeight){
+            clearInterval(autoScroll);
+        }
+    },20);
+}
+
+function drop(ev){
+    ev.preventDefault();
+    clearInterval(autoScroll);
+
+    let data = ev.dataTransfer.getData("text");
+    let item = document.getElementById(data);
+
+    let copy = item.cloneNode(true);
+    copy.removeAttribute("id");
+    copy.removeAttribute("ondragstart");
+    copy.draggable = false;
+
+    copy.style.width="90px";
+    copy.style.height="90px";
+    copy.style.margin="10px";
+
+    document.getElementById("cart").appendChild(copy);
+}
+
+document.addEventListener("dragend",function(){
+    clearInterval(autoScroll);
+});
+
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("demo").innerHTML = "Geolocation is not supported.";
+    }
+}
+
+function showPosition(position){
+    document.getElementById("demo").innerHTML =
+        "Latitude : " + position.coords.latitude +
+        "<br>Longitude : " + position.coords.longitude;
+}
+</script>
+
+<footer>
+<p>© 2026 SRUTHI ONLINE SHOPPING PLATFORM</p>
+<p>All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
