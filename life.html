@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Shopping System</title>
+
+<!-- EXTERNAL CSS -->
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== INTERNAL CSS ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { scroll-behavior:smooth; background:#0f1115; }
+
+header { padding:20px; background:#000000; color:#ffffff; text-align:center; font-size:32px; font-weight:bold; letter-spacing:2px; border-bottom:1px solid #2a2f3a; }
+
+h1 { margin:40px 0 30px; text-align:center; font-size:30px; color:#f5f5f5; }
+h2 { margin:0 0 30px 0; font-size:35px; text-align:center; color:#f5f5f5; }
+h3 { margin:10px 0 0 0; color:#f5f5f5; }
+
+section { padding:50px; }
+
+.banner img { border-radius:10px; }
+
+.products { display:flex; justify-content:center; flex-wrap:wrap; gap:30px; }
+
+.product { width:250px; padding:15px; background:#1a1d24; border:1px solid #2a2f3a; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,.5); text-align:center; transition:.3s; }
+.product:hover { transform:scale(1.05); border-color:#ff9900; }
+.product img { width:200px; height:200px; border-radius:10px; object-fit:cover; background:#2a2f3a; }
+.product p { margin:10px; font-size:20px; color:#4ade80; font-weight:bold; }
+.product video { margin-top:10px; width:200px; height:130px; border-radius:10px; object-fit:cover; background:#000; }
+
+#cart { margin:50px auto 0; padding:20px; width:90%; background:#1a1d24; min-height:220px; border:3px dashed #ff9900; border-radius:15px; display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:10px; }
+#cart img { width:90px; height:90px; margin:10px; border-radius:10px; border:1px solid #ff9900; }
+</style>
+</head>
+<body>
+
+<!-- INLINE CSS example: this header has its own inline style ON TOP of internal CSS -->
+<header style="letter-spacing:3px;">
+SRUTHI ONLINE SHOPPING PLATFORM
+</header>
+
+<center>
+<!-- INLINE CSS example: this h1 overrides internal CSS color -->
+<h1 style="color:#ff9900;">Choose Your Category</h1>
+<div class="banner">
+<img src="shop-banner.jpg" width="900" height="400" usemap="#shopmap">
+</div>
+</center>
+
+<map name="shopmap">
+<area shape="rect" coords="0,0,180,200" href="#fashion">
+<area shape="rect" coords="180,0,360,200" href="#beauty">
+<area shape="rect" coords="360,0,540,200" href="#electronics">
+<area shape="rect" coords="0,200,300,400" href="#home">
+<area shape="rect" coords="300,200,600,400" href="#appliances">
+</map>
+
+<!-- ===================== FASHION ===================== -->
+<section id="fashion">
+<h2>Fashion Collection</h2>
+<div class="products">
+
+<!-- INLINE CSS example: this one product card has an inline style added on top of .product class -->
+<div class="product" style="border-color:#ff9900;">
+<img src="shoe2.jpg" id="shoe2" draggable="true" ondragstart="drag(event)">
+<h3>Adidas Shoes</h3>
+<p>₹1,200</p>
+<video controls>
+<source src="shoe2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="tshirt1.jpg" id="tshirt1" draggable="true" ondragstart="drag(event)">
+<h3>Puma T-Shirt</h3>
+<p>₹500</p>
+<video controls>
+<source src="tshirt1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="tshirt2.jpg" id="tshirt2" draggable="true" ondragstart="drag(event)">
+<h3>Nike T-Shirt</h3>
+<p>₹800</p>
+<video controls>
+<source src="tshirt2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="shoe1.jpg" id="shoe1" draggable="true" ondragstart="drag(event)">
+<h3>Sports Shoes</h3>
+<p>₹2,000</p>
+<video controls>
+<source src="shoe1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== BEAUTY ===================== -->
+<section id="beauty">
+<h2>Beauty Collection</h2>
+<div class="products">
+
+<div class="product">
+<img src="beauty1.jpg" id="beauty1" draggable="true" ondragstart="drag(event)">
+<h3>Organic Lip Balm</h3>
+<p>₹350</p>
+<video controls>
+<source src="beauty1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty2.jpg" id="beauty2" draggable="true" ondragstart="drag(event)">
+<h3>Perfume</h3>
+<p>₹1,000</p>
+<video controls>
+<source src="beauty2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty3.jpg" id="beauty3" draggable="true" ondragstart="drag(event)">
+<h3>Foam Face Wash</h3>
+<p>₹200</p>
+<video controls>
+<source src="beauty3.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="beauty4.jpg" id="beauty4" draggable="true" ondragstart="drag(event)">
+<h3>Face Cream</h3>
+<p>₹450</p>
+<video controls>
+<source src="beauty4.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== ELECTRONICS ===================== -->
+<section id="electronics">
+<h2>Electronics</h2>
+<div class="products">
+
+<div class="product">
+<img src="laptop.jpg" id="laptop" draggable="true" ondragstart="drag(event)">
+<h3>Laptop</h3>
+<p>₹55,000</p>
+<video controls>
+<source src="laptop.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="headphone.jpg" id="headphone" draggable="true" ondragstart="drag(event)">
+<h3>Headphones</h3>
+<p>₹2,500</p>
+<video controls>
+<source src="headphone.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="watch.jpg" id="watch" draggable="true" ondragstart="drag(event)">
+<h3>Smart Watch</h3>
+<p>₹3,999</p>
+<video controls>
+<source src="watch.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+<div class="product">
+<img src="mobile.jpg" id="mobile" draggable="true" ondragstart="drag(event)">
+<h3>Smart Phone</h3>
+<p>₹18,999</p>
+<video controls>
+<source src="mobile.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+</div>
+</section>
+
+<!-- ===================== CART (drop zone) ===================== -->
+<section>
+<h2>Your Cart</h2>
+<!-- INLINE CSS example: extra inline style added on top of internal #cart rule -->
+<div id="cart" style="border-color:#4ade80;" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+</section>
+
+<!-- ===================== LOCATION ===================== -->
+<section>
+<div class="location">
+<h2>Delivery Location</h2>
+<button onclick="getLocation()">Get Location</button>
+<p id="demo"></p>
+</div>
+</section>
+
+<!-- ===================== PURCHASE FORM ===================== -->
+<section>
+<h2>Purchase Form</h2>
+<form>
+
+<label>Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Phone</label>
+<input type="tel">
+
+<label>Quantity</label>
+<input type="number" min="1" max="10">
+
+<label>Delivery Date</label>
+<input type="date">
+
+<label>Payment Method</label>
+<select>
+<option>Cash on Delivery</option>
+<option>UPI</option>
+<option>Credit Card</option>
+</select>
+
+<label>Address</label>
+<textarea rows="4"></textarea>
+
+<!-- INLINE CSS example: submit button gets extra inline style on top of internal CSS -->
+<input type="submit" value="Buy Now" style="letter-spacing:1px;">
+<input type="reset" value="Reset">
+
+</form>
+</section>
+
+<script>
+let autoScroll;
+
+function allowDrop(ev){
+    ev.preventDefault();
+}
+
+function drag(ev){
+    ev.dataTransfer.setData("text", ev.target.id);
+
+    autoScroll = setInterval(function(){
+        window.scrollBy(0,10);
+        if(window.innerHeight + window.scrollY >= document.body.scrollHeight){
+            clearInterval(autoScroll);
+        }
+    },20);
+}
+
+function drop(ev){
+    ev.preventDefault();
+    clearInterval(autoScroll);
+
+    let data = ev.dataTransfer.getData("text");
+    let item = document.getElementById(data);
+
+    let copy = item.cloneNode(true);
+    copy.removeAttribute("id");
+    copy.removeAttribute("ondragstart");
+    copy.draggable = false;
+
+    copy.style.width="90px";
+    copy.style.height="90px";
+    copy.style.margin="10px";
+    copy.style.borderRadius="10px";
+    copy.style.border="1px solid #ff9900";
+
+    document.getElementById("cart").appendChild(copy);
+}
+
+document.addEventListener("dragend",function(){
+    clearInterval(autoScroll);
+});
+
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("demo").innerHTML = "Geolocation is not supported.";
+    }
+}
+
+function showPosition(position){
+    document.getElementById("demo").innerHTML =
+        "Latitude : " + position.coords.latitude +
+        "<br>Longitude : " + position.coords.longitude;
+}
+</script>
+
+<footer>
+<p>© 2026 SRUTHI ONLINE SHOPPING PLATFORM</p>
+<p>All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

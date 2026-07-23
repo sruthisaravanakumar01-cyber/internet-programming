@@ -1,0 +1,53 @@
+/* ===== EXTERNAL CSS FILE ===== */
+
+footer {
+    margin-top:50px;
+    padding:20px;
+    background:#000000;
+    color:#cfd3da;
+    text-align:center;
+    border-top:1px solid #2a2f3a;
+}
+
+.location {
+    text-align:center;
+    margin-top:50px;
+}
+.location button {
+    padding:12px 25px;
+    font-size:18px;
+    background:#ff9900;
+    color:#000;
+    font-weight:bold;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.location p {
+    margin-top:20px;
+    font-size:20px;
+    color:#f5f5f5;
+}
+
+form {
+    margin:40px auto 0;
+    padding:30px;
+    width:450px;
+    background:#1a1d24;
+    border:1px solid #2a2f3a;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+form label { color:#cfd3da; }
+form input, form textarea, form select {
+    width:100%;
+    margin-top:10px;
+    margin-bottom:20px;
+    padding:12px;
+    background:#0f1115;
+    color:#f5f5f5;
+    border:1px solid #2a2f3a;
+    border-radius:6px;
+}
+input[type=submit] { background:#28a745; color:white; font-weight:bold; border:none; cursor:pointer; }
+input[type=reset] { background:#dc3545; color:white; font-weight:bold; border:none; cursor:pointer; }
