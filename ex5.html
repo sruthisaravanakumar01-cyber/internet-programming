@@ -1,0 +1,140 @@
+Index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Online Examination System</title>
+</head>
+<body>
+<h1>Online Examination System</h1>
+<form action="ExamServlet" method="post">
+ 
+ <div class="field">
+ <label class="name-label">Your Name:</label>
+ <input type="text" name="username" placeholder="Enter your full name" required>
+ </div>
+ <br>
+ <div class="field">
+ <label class="name-label">Roll Number:</label>
+ <input type="text" name="rollnumber" placeholder="Enter your roll number" required>
+ </div>
+ <h3>Multiple Choice Questions</h3>
+ <p>1. What is the capital of France?</p>
+ <input type="radio" name="q1" value="Paris"> Paris
+ <input type="radio" name="q1" value="London"> London
+ <input type="radio" name="q1" value="Rome"> Rome
+ <input type="radio" name="q1" value="Berlin"> Berlin
+ <p>2. Which language is used for web page structure?</p>
+ <input type="radio" name="q2" value="HTML"> HTML
+ <input type="radio" name="q2" value="Java"> Java
+ <input type="radio" name="q2" value="Python"> Python
+ <input type="radio" name="q2" value="C"> C
+ <p>3. Which of the following is an operating system?</p>
+ <input type="radio" name="q3" value="Windows"> Windows
+ <input type="radio" name="q3" value="HTML"> HTML
+ <input type="radio" name="q3" value="Java"> Java
+ <input type="radio" name="q3" value="SQL"> SQL
+ <p>4. Which symbol is used to end a Java statement?</p>
+ <input type="radio" name="q4" value="."> .
+ <input type="radio" name="q4" value=";"> ;
+ <input type="radio" name="q4" value=":"> :
+ <input type="radio" name="q4" value=","> ,
+ <p>5. Which one is a Java keyword?</p>
+ <input type="radio" name="q5" value="class"> class
+ <input type="radio" name="q5" value="function"> function
+ <input type="radio" name="q5" value="define"> define
+ <input type="radio" name="q5" value="include"> include
+ <h3>One-Word Questions</h3>
+ <p>6. What does HTML stand for?</p>
+ <input type="text" name="q6">
+ <p>7. Which language is used to create Java Servlets?</p>
+ <input type="text" name="q7">
+ <p>8. Which protocol is used to transfer web pages?</p>
+ <input type="text" name="q8">
+ <p>9. What is the extension of a Java source file?</p>
+ <input type="text" name="q9">
+ <p>10. Which company originally developed Java?</p>
+ <input type="text" name="q10">
+ <br><br>
+ <input type="submit" value="Submit Exam">
+</form>
+</body>
+</html>
+
+ExamServlet
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@WebServlet("/ExamServlet")
+public class ExamServlet extends HttpServlet {
+ protected void doPost(HttpServletRequest request,
+ HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html");
+ PrintWriter out = response.getWriter();
+ 
+ String q1 = request.getParameter("q1");
+ String q2 = request.getParameter("q2");
+ String q3 = request.getParameter("q3");
+ String q4 = request.getParameter("q4");
+ String q5 = request.getParameter("q5");
+ String q6 = request.getParameter("q6");
+ String q7 = request.getParameter("q7");
+ String q8 = request.getParameter("q8");
+ String q9 = request.getParameter("q9");
+ String q10 =request.getParameter("q10");
+ int score = 0;
+ 
+ if ("Paris".equalsIgnoreCase(q1))
+ score++;
+ if ("HTML".equalsIgnoreCase(q2))
+ score++;
+ if ("Windows".equalsIgnoreCase(q3))
+ score++;
+ if (";".equals(q4))
+ score++;
+ if ("class".equalsIgnoreCase(q5))
+ score++;
+ 
+ if ("HyperText Markup Language".equalsIgnoreCase(q6))
+ score++;
+ if ("Java".equalsIgnoreCase(q7))
+ score++;
+ if ("HTTP".equalsIgnoreCase(q8))
+ score++;
+ if ("java".equalsIgnoreCase(q9))
+ score++;
+ if ("Sun Microsystems".equalsIgnoreCase(q10))
+ score++;
+ 
+ out.println("<html>");
+ out.println("<head>");
+ out.println("<title>Exam Result</title>");
+ out.println("</head>");
+ out.println("<body>");
+ 
+ out.println("<h1>Online Examination Result</h1>");
+ 
+ out.println("<p>1. " + q1 + "</p>");
+ out.println("<p>2. " + q2 + "</p>");
+ out.println("<p>3. " + q3 + "</p>");
+ out.println("<p>4. " + q4 + "</p>");
+ out.println("<p>5. " + q5 + "</p>");
+ out.println("<p>6. " + q6 + "</p>");
+ out.println("<p>7. " + q7 + "</p>");
+ out.println("<p>8. " + q8 + "</p>");
+ out.println("<p>9. " + q9 + "</p>");
+ out.println("<p>10. " + q10 + "</p>");
+ out.println("<h2>Final Score: " + score + " / 10</h2>");
+ out.println("</body>");
+ out.println("</html>");
+ out.close();
+ 
+ }
+
+}
