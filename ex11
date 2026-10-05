@@ -1,0 +1,203 @@
+ndex.php:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shopping Application</title>
+</head>
+
+<body>
+
+<h2>Online Shopping Application</h2>
+
+<form action="save_order.php" method="POST">
+
+    Customer Name:
+    <input type="text" name="customer_name" required>
+    <br><br>
+
+    Email:
+    <input type="email" name="email" required>
+    <br><br>
+
+    Product:
+    <select name="product_name">
+        <option value="Laptop">Laptop</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Headphones">Headphones</option>
+        <option value="Keyboard">Keyboard</option>
+    </select>
+    <br><br>
+
+    Quantity:
+    <input type="number" name="quantity" min="1" required>
+    <br><br>
+
+    Price:
+    <input type="number" name="price" step="0.01" required>
+    <br><br>
+
+    <input type="submit" value="Place Order">
+
+</form>
+
+<br>
+
+<a href="orders.php">View Stored Orders</a>
+
+</body>
+</html>
+
+Db.php:
+<?php
+
+$conn = mysqli_connect(
+    "localhost",
+    "root",
+    "test@123",
+    "shopping_app"
+);
+
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+?>
+
+Save_order.php:
+<?php
+
+include "db.php";
+
+$customer_name = $_POST['customer_name'];
+$email = $_POST['email'];
+$product_name = $_POST['product_name'];
+$quantity = $_POST['quantity'];
+$price = $_POST['price'];
+
+$total = $quantity * $price;
+
+// Store new order
+$sql = "INSERT INTO orders
+(customer_name, email, product_name, quantity, price, total)
+VALUES
+('$customer_name', '$email', '$product_name', '$quantity', '$price', '$total')";
+
+if (mysqli_query($conn, $sql)) {
+
+    echo "<h2>Order Placed Successfully!</h2>";
+    echo "<h3>All Stored Order Details</h3>";
+
+    // Get ALL records
+    $result = mysqli_query($conn, "SELECT * FROM orders");
+
+    echo "<table border='1' cellpadding='10' cellspacing='0'>";
+
+    echo "<tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Order Date</th>
+          </tr>";
+
+    // Display every record
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        echo "<tr>";
+
+        echo "<td>" . $row['order_id'] . "</td>";
+        echo "<td>" . $row['customer_name'] . "</td>";
+        echo "<td>" . $row['email'] . "</td>";
+        echo "<td>" . $row['product_name'] . "</td>";
+        echo "<td>" . $row['quantity'] . "</td>";
+        echo "<td>₹" . $row['price'] . "</td>";
+        echo "<td>₹" . $row['total'] . "</td>";
+        echo "<td>" . $row['order_date'] . "</td>";
+
+        echo "</tr>";
+    }
+
+    echo "</table>";
+
+    echo "<br><br>";
+    echo "<a href='index.php'>Place Another Order</a>";
+
+} else {
+
+    echo "Error: " . mysqli_error($conn);
+
+}
+
+mysqli_close($conn);
+
+?>
+
+Orders.php:
+
+<?php
+
+include "db.php";
+
+$sql = "SELECT * FROM orders";
+$result = mysqli_query($conn, $sql);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stored Orders</title>
+</head>
+
+<body>
+
+<h2>Stored Order Details</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Order ID</th>
+    <th>Customer Name</th>
+    <th>Email</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+    <th>Order Date</th>
+</tr>
+
+<?php
+
+while ($row = mysqli_fetch_assoc($result)) {
+
+    echo "<tr>";
+    echo "<td>" . $row['order_id'] . "</td>";
+    echo "<td>" . $row['customer_name'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['product_name'] . "</td>";
+    echo "<td>" . $row['quantity'] . "</td>";
+    echo "<td>" . $row['price'] . "</td>";
+    echo "<td>" . $row['total'] . "</td>";
+    echo "<td>" . $row['order_date'] . "</td>";
+    echo "</tr>";
+
+}
+
+?>
+
+</table>
+
+<br>
+
+<a href="index.php">Back to Shopping</a>
+
+</body>
+</html>
+
+<?php
+
+mysqli_close($conn);
+
+?>
