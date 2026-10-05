@@ -1,0 +1,65 @@
+Index.html:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration Form</h2>
+    <form action="validate.php" method="post">
+        <label>Email:</label><br>
+        <input type="text" name="email" required>
+        <br><br>
+        <label>Phone Number:</label><br>
+        <input type="text" name="phone" required>
+        <br><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required>
+        <br><br>
+        <label>Credit Card Number:</label><br>
+        <input type="text" name="card" required>
+        <br><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
+
+Validate.php:
+<?php
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$password = $_POST["password"];
+$card = $_POST["card"];
+$valid = true;
+// Email validation
+if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
+    echo "Invalid Email<br>";
+    $valid = false;
+}
+// Phone validation - exactly 10 digits
+if (!preg_match("/^[0-9]{10}$/", $phone)) {
+    echo "Invalid Phone Number<br>";
+    $valid = false;
+}
+
+// Password validation - minimum 8 characters,
+// one uppercase, one lowercase and one digit
+if (!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$/", $password)) {
+    echo "Invalid Password<br>";
+    $valid = false;
+}
+
+// Credit card validation - exactly 16 digits
+if (!preg_match("/^[0-9]{16}$/", $card)) {
+    echo "Invalid Credit Card Number<br>";
+    $valid = false;
+}
+
+// Final result
+if ($valid) {
+    echo "<h2>Registration Successful!</h2>";
+    echo "Email: " . htmlspecialchars($email) . "<br>";
+    echo "Phone: " . htmlspecialchars($phone) . "<br>";
+    echo "Credit Card: Valid<br>";
+}
+?>
